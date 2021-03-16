@@ -4,7 +4,6 @@ const { mongoose } = require(".");
 module.exports = mongoose => {
     var schema = mongoose.Schema(
         {
-            first_name: String,
             customer_id: Number,
             order_status_code: String,
             datetime_order_placed: Date,

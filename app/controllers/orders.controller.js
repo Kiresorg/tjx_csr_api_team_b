@@ -98,7 +98,7 @@ exports.getOne = (req, res) => {
 
 // Edit an order from ID
 exports.editOrder = (req, res) => {
-    res.send('Reached update order by id');
+    res.send('reached update order by id');
     /*if(!req.body) {
         return res.status(400).send({
             message: "Empty data for update"

@@ -15,6 +15,7 @@ app.use((req, res, next) => {
 });
 
 require("./app/routers/customers.route")(app);
+require("./app/routers/orders.route")(app);
 
 // default URL to API
 app.use('/', function(req, res) {
