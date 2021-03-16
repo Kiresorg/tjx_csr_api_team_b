@@ -1,3 +1,34 @@
-### 
+### Get All Customers
 GET http://localhost:3000/api/customers HTTP/1.1
 content-type: application/json
+
+### Get one customer by ID
+GET http://localhost:3000/api/customers/:id HTTP/1.1
+content-type: application/json
+
+### update customer by ID
+PUT http://localhost:3000/api/customers/:id HTTP/1.1
+content-type:application/json
+
+### delete customer by id 
+DELETE  http://localhost:3000/api/customers/:id HTTP/1.1
+content-type:application/json
+
+### create new customer 
+POST http://localhost:3000/api/customers HTTP/1.1
+
+{
+    "first_name": "",
+    "middle_name": "",
+    "last_name": "",
+    "phone": "",
+    "email": "",
+    "notes": "",
+    "address_line1": "",
+    "address_line2": "",
+    "apartment_number": "",
+    "city": "",
+    "state": "",
+    "zip": "",
+}
+

@@ -3,8 +3,9 @@ const Customer = db.customers;
 
 // create and save a Customer
 exports.create = (req, res) => {
-    // create Claim
-    const customer = new Customer({
+    res.send("reached create new customer")
+    // create customer
+    /*const customer = new Customer({
         first_name: req.body.first_name ? req.body.first_name : '',
         middle_name: req.body.middle_name ? req.body.middle_name : '',
         last_name: req.body.last_name ? req.body.last_name : '',
@@ -16,7 +17,7 @@ exports.create = (req, res) => {
         apartment_number: req.body.apartment_number ? req.body.apartment_number : '',
         city: req.body.city ? req.body.city : '',
         state: req.body.state ? req.body.state : '',
-        zip: req.body.zip ? req.body.zip : '',
+        zip: req.body.zip ? req.body.zip : ''
     });
 
     // save Claim to dB
@@ -31,30 +32,33 @@ exports.create = (req, res) => {
                     err.message || "Error while creating Customer"
             });
         })
+        */
 };
 
 // get all claims
 exports.findAll = (req, res) => {
-    const notes = req.query.notes;
-    var condition = notes ? { notes: { $regex: new RegExp(notes), $options: "i" }} : {}
-    Claim.find(condition)
-        .then(data => {
-            res.send("got all")//res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Error while retreving Claims"
-            });
-        });
+    res.send("Reached get all customers");
+    // const notes = req.query.notes;
+    // var condition = notes ? { notes: { $regex: new RegExp(notes), $options: "i" }} : {}
+    // Customer.find(condition)
+    //     .then(data => {
+    //         res.send("got all")//res.send(data);
+    //     })
+    //     .catch(err => {
+    //         res.status(500).send({
+    //             message:
+    //                 err.message || "Error while retreving Claims"
+    //         });
+    //     });
 };
 
 
 // get Claim by id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-
-    Claim.findById(id)
+    res.send("reached get customer by id");
+    /**
+    Customer.findById(id)
         .then(data => {
             if(!data)
                 res.status(404).send({ message: "Not found: Claim with id of " + id });
@@ -65,11 +69,13 @@ exports.findOne = (req, res) => {
                 .status(500)
                 .send({ message: "Error retreiving Claim with id of " + id });
         });
+         */
 };
 
-// update Claim by id
+// update Customer by id
 exports.update = (req, res) => {
-    if(!req.body) {
+    res.send('Reached update customer by id');
+    /*if(!req.body) {
         return res.status(400).send({
             message: "Empty data for update"
         });
@@ -90,13 +96,15 @@ exports.update = (req, res) => {
                 message: "Error while trying to update Claim with id of " + id
             });
         });
+        */
 };
 
 // delete Claim by id
 exports.delete = (req, res) => {
     const id = req.params.id;
-
-    Claim.findByIdAndRemove(id)
+    res.send("reached delete customer by id");
+    /*
+    Customer.findByIdAndRemove(id)
         .then(data => {
             if(!data) {
                 res.status(404).send({
@@ -113,33 +121,5 @@ exports.delete = (req, res) => {
                 message: "Unable to delete Claim with id of " + id
             });
         });
-};
-
-// delete all Claims
-exports.deleteAll = (req, res) => {
-    Claim.deleteMany({})
-        .then(data => {
-            res.send({
-                message: `${data.deletedCount} Claims were deleted successfully.`
-            });
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: "An error occurred while attempting to delete all Claims"
-            });
-        });
-};
-
-// get all active Policies
-exports.findAllActive = (req, res) => {
-    Policy.find({ is_active_policy: true })
-        .then(data => {
-            res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "An error occurred while retrieving active Policies"
-            });
-        });
+        */
 };
