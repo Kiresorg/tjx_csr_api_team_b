@@ -36,7 +36,7 @@ exports.createOrder = (req, res) => {
 exports.getAll = (req, res) => {
 
     // Testing
-    res.send("Reached get all orders");
+    res.send("reached get all orders");
 
     // const notes = req.query.notes;
     // var condition = notes ? { notes: { $regex: new RegExp(notes), $options: "i" }} : {}
