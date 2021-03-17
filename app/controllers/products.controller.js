@@ -43,7 +43,7 @@ exports.findAll = (req, res) => {
         });
 };
 
-//get one product
+//get one product by SKU
 exports.findOne = (req, res) => {
     const SKU = req.params.id;
 
