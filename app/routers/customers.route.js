@@ -9,9 +9,6 @@ module.exports = app => {
     // get all customer
     router.get("/", customers.findAll);
 
-    // get all active customer
-    //router.get("/active", customers.findAllActive);
-
     // get customer by id
     router.get("/:id", customers.findOne);
 

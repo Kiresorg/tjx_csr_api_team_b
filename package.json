@@ -5,10 +5,15 @@
         "start": "node server.js"
     },
     "dependencies": {
+        "bcrypt-node": "^0.1.0",
         "cors": "^2.8.5",
         "express": "^4.17.1",
+        "express-handlebars": "^5.2.1",
+        "express-session": "^1.17.1",
         "mysql": "^2.18.1",
         "mysql2": "^2.2.5",
+        "passport": "^0.4.1",
+        "passport-local": "^1.0.0",
         "sequelize": "^6.5.0",
         "sequelize-cli": "^6.2.0"
     },
