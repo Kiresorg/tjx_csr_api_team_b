@@ -1,8 +1,13 @@
-const http = require('http');
-const express = require('express');
+const app       = express();
+const http      = require('http');
+const express   = require('express');
 
+var passport    = require('passport');
+var session     = require('express-session');
+var bodyParser  = require('body-parser');
+var models      = require('./app/models');
+var exphbs      = require('express-handlebars');
 
-const app = express();
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -16,6 +21,18 @@ app.use((req, res, next) => {
 
 require("./app/routers/customers.route")(app);
 require("./app/routers/orders.route")(app);
+
+/* 
+*  For BodyParser (this extracts the entire body of an 
+*  incoming request and exposes it in JSON format)
+*/
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+//Setting up required passport initialization
+app.use(session({secret: 'keyboard cat', resave: true, saveUninitialized: true}));
+app.use(passport.initialize());
+app.use(passport.session()); //Persistent login sessions
 
 // default URL to API
 app.use('/', function(req, res) {
